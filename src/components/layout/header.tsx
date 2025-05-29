@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -16,18 +15,17 @@ const NavLink = ({ href, label, onClick }: NavLinkType & { onClick?: () => void 
   const pathname = usePathname();
   const isActive = pathname === href;
   return (
-    <Link href={href} passHref legacyBehavior>
-      <a
-        onClick={onClick}
-        className={cn(
-          "text-sm transition-colors",
-          isActive
-            ? "text-green-600 underline decoration-green-600 underline-offset-4 font-semibold"
-            : "text-foreground/80 hover:text-primary font-medium"
-        )}
-      >
-        {label}
-      </a>
+    <Link
+      href={href}
+      onClick={onClick}
+      className={cn(
+        "text-sm transition-colors",
+        isActive
+          ? "text-green-600 underline decoration-green-600 underline-offset-4 font-semibold"
+          : "text-foreground/80 hover:text-primary font-medium"
+      )}
+    >
+      {label}
     </Link>
   );
 };
